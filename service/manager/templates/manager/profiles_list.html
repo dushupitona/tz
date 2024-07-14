@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/profiles_style.css' %}">
+    <title>Profiles</title>
+</head>
+<body>
+    <header class="top-bar">    
+        <nav class="nav">
+            <ul style="justify-content: space-between;">
+                <li style="color: rgb(219, 58, 111);">Admin</li>
+                <li style="display: flex; flex-direction: row;"><a href="{% url 'base' %}">Main page</a><a href="{% url 'logout' %}" style="margin-left: 50px;">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <a href="{% url 'profile_create' %}" style="display: inline-block;"><div class="add_user-block"><span style="color: black;">Add user</span></div></a>
+    
+    <div class="profile_container">
+        {% for profile in object_list %}
+        <a href="{% url 'profile' profile.id %}">
+            <div class="profile-card">
+                    <div class="profile-block">
+                        <div class="user_field">
+                            <span class="span-title">Username: </span>
+                            <span>{{ profile.username }}</span>
+                        </div>
+                        <div class="user_field">
+                            <span class="span-title">Email: </span>
+                            <span>{{ profile.email }}</span>
+                        </div>
+                        <div class="user_field">
+                            <span class="span-title">First name: </span>
+                            <span>{{ profile.first_name }}</span>
+                        </div>
+                        <div class="user_field">
+                            <span class="span-title">Last name: </span>
+                            <span>{{ profile.last_name }}</span>
+                        </div>
+                    </div>
+            </div>
+        </a>
+        {% endfor %}
+   
+    </div>
+    
+</body>
+</html>
