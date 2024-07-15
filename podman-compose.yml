@@ -1,8 +1,9 @@
-version: '3'
+version: '3.8'
 
 services:
   web:
-    build: .
+    build:
+      context: .
     depends_on:
       - db
     ports:
@@ -11,7 +12,11 @@ services:
       - ./service:/app
     env_file:
       - .env
-    command: sh -c "python manage.py makemigrations && python manage.py migrate && python manage.py loaddata /app/fixtures/admin.json && python manage.py runserver 0.0.0.0:8000"
+    command: >
+      sh -c " python manage.py makemigrations &&
+              python manage.py migrate &&
+              python manage.py loaddata /app/fixtures/admin.json &&
+              python manage.py runserver 0.0.0.0:8000"
 
   db:
     image: postgres:15-alpine
