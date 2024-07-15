@@ -5,11 +5,10 @@
 > - Защита от SQL-инъекций. Django ORM автоматически экранирует пользовательский ввод и предотвращает SQL-инъекции.
 
 > ## Запуск проекта ##
-> 1. Установите podman-compose: ``` pip install podman-compose ```
-> 2. Склонируйте проект: ``` git clone https://github.com/dushupitona/tz.git ```
-> 3. Перейдите в директорию проекта: ``` cd tz ```
-> 4. Запустите команду ``` podman-compose up --build ```
-> 5. Перейдите по адресу http://localhost:8000
+> 1. Склонируйте проект: ``` git clone https://github.com/dushupitona/tz.git ```
+> 2. Перейдите в директорию проекта: ``` cd tz ```
+> 3. Запустите команду ``` docker-compose up --build ```
+> 4. Перейдите по адресу http://localhost:8000
 
 > ## Администратор ##
 > Пользователь создается автоматически:
